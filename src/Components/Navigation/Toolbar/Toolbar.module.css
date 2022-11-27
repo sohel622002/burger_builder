@@ -1,0 +1,50 @@
+.Toolbar {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-inline: auto;
+    position: sticky;
+    z-index: 99;
+    top: 0;
+    padding: 0px 30px;
+    color: white;
+    background-color: #955518;
+
+}
+
+.Toolbar nav {
+    height: 100%;
+}
+
+.BurgerLogo,
+.BurgerLogo img {
+    height: 90%;
+}
+
+.Menu {
+    height: 100%;
+    padding-inline-end: 7px;
+    padding-left: 7px;
+    transition: all .2s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Menu:hover{
+    border-bottom: 4px solid #ec8d35;
+}
+
+.Menu a{
+    text-decoration: none;
+    color: white;
+    
+}
+
+@media (max-width: 499px) {
+    .DesktopOnly {
+        display: none;
+    }
+}

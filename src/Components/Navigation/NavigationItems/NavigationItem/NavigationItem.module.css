@@ -1,0 +1,33 @@
+.links{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.links:hover, .links:active{
+    background-color: rgb(211, 136, 55);
+    border-bottom: 4px solid rgb(253, 166, 27);
+}
+
+.links a{
+    text-decoration: none;
+    color: rgb(243, 151, 32);
+    font-size: 18px;
+}
+
+@media (min-width : 500px){
+    .links{
+        padding-top: 5px;
+        padding-inline: 5px;
+    }
+    
+    .links:hover, .links:active{
+        background-color: rgb(211, 136, 55);
+        border-bottom: 4px solid rgb(253, 166, 27);
+    }
+    
+    .links a{
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+    }
+}

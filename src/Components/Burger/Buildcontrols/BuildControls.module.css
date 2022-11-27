@@ -1,0 +1,21 @@
+.OrderButton{
+    display: block;
+    margin-inline: auto;
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgb(213, 96, 32);
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: .5px;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+.OrderButton:hover, .OrderButton:disabled{
+    background-color: rgb(213, 96, 32, .7);
+    color: rgba(0, 0, 0, 0.7);
+}
+
+

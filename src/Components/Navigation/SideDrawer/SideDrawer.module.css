@@ -1,0 +1,57 @@
+.SideDrawer{
+    position: fixed;
+    width: 70%;
+    height: 100%;
+    background-color: rgba(238, 237, 237);
+    backdrop-filter: blur(10px);
+    z-index: 200;
+    transition: transform 0.3s ease-out;
+}
+
+.ImageDiv{
+    width: 100px;
+    /* border: 1px solid red; */
+    padding: 10px 20px;
+    margin-inline: auto;
+    margin-top: 20px;
+}
+
+.ImageDiv img{
+    width: 100%;
+}
+
+.Btn{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 30px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.58);
+    color: rgba(0, 0, 0, 0.866);
+}
+.Btn img{
+    width: 20px;
+    box-sizing: border-box;
+    margin-right: 10px;
+    opacity: .90;
+}
+
+@media (min-width: 500px){
+    .SideDrawer{
+        display: none;
+    }
+}
+
+.Open{
+    transform: translateX(0);
+}
+
+.Close{
+    transform: translateX(-100%);
+}

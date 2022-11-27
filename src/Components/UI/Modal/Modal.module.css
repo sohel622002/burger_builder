@@ -1,0 +1,10 @@
+.Modal{
+    position: fixed;
+    width: 300px;
+    height: auto;
+    left: calc(50% - 150px);
+    background-color: rgb(228, 228, 228);
+    z-index: 201;
+    padding: 20px 30px;
+    transition: all 0.5s ease-in-out;
+}

@@ -1,0 +1,33 @@
+.OrderSummaryBox{
+    position: relative;
+    font-size: 20px;
+    color: rgb(38, 38, 38);
+    z-index: 199;
+}
+
+.OrderSummaryBox p{
+    margin: 20px 0px;
+}
+
+.OrderSummaryBox ul{
+    list-style: none;
+}
+
+.OrderSummaryBox button{
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+.Cancle{
+    color: red;
+    background-color: rgb(228, 228, 228);
+    outline: 1px solid red;
+    border: none;
+}
+
+.Contnue{
+    color: green;
+    background-color: rgb(228, 228, 228);
+    outline: 1px solid green;
+    border: none;
+}

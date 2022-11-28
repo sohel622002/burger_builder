@@ -13,6 +13,10 @@
     margin-top: 25px;
 }
 
+.BuilControls{
+    padding-bottom: 15px;
+}
+
 .OrderButton:hover, .OrderButton:disabled{
     background-color: rgb(213, 96, 32, .7);
     color: rgba(0, 0, 0, 0.7);

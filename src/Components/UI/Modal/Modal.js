@@ -1,32 +1,34 @@
 
-import React, { memo }  from "react";
+import React, { Component } from "react";
 
 import Backdrop from "../Backdrop/Backdrop"
 
 import classes from "./Modal.module.css"
 
-const Modal = (props) => {
+class Modal extends Component {
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
+    };
 
-
-    return (
-        <>
-            <Backdrop show={props.show}
-                closeBackdrop={props.canclePurchase} />
-            <div
-                className={classes.Modal}
-                style={
-                    {
-                        transform: props.show ? 'translateY(0)' : 'translateY(-100vh)',
-                        opacity: props.show ? '1' : '0'
-                    }
-                }>
-                {props.children}
-            </div>
-        </>
-    );
-
+    
+    render() {
+        return (
+            <>
+                <Backdrop show={this.props.show}
+                    closeBackdrop={this.props.closeModal} />
+                <div
+                    className={classes.Modal}
+                    style={
+                        {
+                            transform: this.props.show ? 'translateY(0)' : 'translateY(-100vh)',
+                            opacity: this.props.show ? '1' : '0'
+                        }
+                    }>
+                    {this.props.children}
+                </div>
+            </>
+        );
+    }
 };
 
-export default memo(Modal, (prevProps, nextProps) => prevProps.show === nextProps.show);
-//This Upper Part Is Working with memo...It Only renders if the show property changes..
-//Or Whenever Page Reloads...
+export default Modal;

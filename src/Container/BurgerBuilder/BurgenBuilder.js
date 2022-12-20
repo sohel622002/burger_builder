@@ -7,6 +7,7 @@ import OrderSummary from "../../Components/Burger/OrderSummary/OrderSummary"
 import Spinner from "../../Components/UI/Spinner/Spinner";
 import withErrorHandler from "../../Components/HOC/withErrorHandler/withErrorHandler";
 import axios from '../../axios.orders'
+import { Navigate } from "react-router-dom";
 
 const INGREDIENT_PRICES = {
     salad: 0.5,
@@ -22,14 +23,19 @@ class BurgerBuilder extends Component {
         totalPrice: 4,
         purchable: false,
         purchasing: false,
-        loading: false
+        loading: false,
+        errormsg:false,
+        navigateToCkeckOut : false
     }
 
     componentDidMount() {
-        axios.get('https://my-burger-app-da6a3-default-rtdb.firebaseio.com/Ingredients.json')
-            .then(response => {
-                this.setState({ ingredients: response.data })
-            }).catch(err => console.log(err))
+        axios.get('https://my-burger-app-da6a3-default-rtdb.firebaseio.com/Ingredients.json' )
+            .then( response => {
+                this.setState({ ingredients: response.data });
+            } )
+            .catch( error => {
+                this.setState({errormsg : true});
+            });
     }
 
     updatePurchaseState(ingredients) {
@@ -94,26 +100,27 @@ class BurgerBuilder extends Component {
 
     contnuePurchaseHandler = () => {
 
-        this.setState({ loading: true });
+        // this.setState({ loading: true });
 
-        const order = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            customerDetail: {
-                name: 'sohel shaikh',
-                address: 'ismail nagar, anand',
-                pincode: 380001,
-                email: 'test@test.com'
-            },
-            deliveryMethod: 'fastest'
-        }
-        axios.post('/orders.json', order)
-            .then(response => {
-                this.setState({ loading: false, purchasing: false })
-            })
-            .catch(err => {
-                this.setState({ loading: false, purchasing: false })
-            });
+        // const order = {
+        //     ingredients: this.state.ingredients,
+        //     price: this.state.totalPrice,
+        //     customerDetail: {
+        //         name: 'sohel shaikh',
+        //         address: 'ismail nagar, anand',
+        //         pincode: 380001,
+        //         email: 'test@test.com'
+        //     },
+        //     deliveryMethod: 'fastest'
+        // }
+        // axios.post('/orders.json', order)
+        //     .then(response => {
+        //         this.setState({ loading: false, purchasing: false })
+        //     })
+        //     .catch(err => {
+        //         this.setState({ loading: false, purchasing: false })
+        //     });
+        this.setState({navigateToCkeckOut : true})
     };
 
 
@@ -128,13 +135,7 @@ class BurgerBuilder extends Component {
 
         let orderSummary = null;
 
-        
-
-
-
-
-        let burger = <Spinner />
-
+        let burger = this.state.errormsg ? <p>Ingredients can't be Loaded....!</p> : <Spinner />;
 
         if (this.state.ingredients) {
             burger = (
@@ -150,20 +151,22 @@ class BurgerBuilder extends Component {
                 </>
             );
             orderSummary = <OrderSummary
-            ingredients={this.state.ingredients}
-            price={this.state.totalPrice}
-            canclepurchase={this.canclePurchaseHandler}
-            contnuepurchase={this.contnuePurchaseHandler} />
+                ingredients={this.state.ingredients}
+                price={this.state.totalPrice}
+                canclepurchase={this.canclePurchaseHandler}
+                contnuepurchase={this.contnuePurchaseHandler}/>
         }
 
         if (this.state.loading) {
             orderSummary = <Spinner />
         }
 
+        
         // console.log(this.state.loading)
-
+        
         return (
             <>
+            {this.state.navigateToCkeckOut ? <Navigate to="/checkout" /> : null}
                 <Modal
                     show={this.state.purchasing}
                     closeModal={this.canclePurchaseHandler}>

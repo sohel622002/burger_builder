@@ -16,7 +16,6 @@ const withErrorHandler = (WrapedComponent, axios) => {
             })
             this.resInterceptor = axios.interceptors.response.use(req => req, error => {
                 this.setState({ error : error})
-                return error
             })
         }
 
@@ -31,7 +30,6 @@ const withErrorHandler = (WrapedComponent, axios) => {
 
         render() {
 
-            // console.log( this.state.error)
             return (
                 <>
                     <Modal 

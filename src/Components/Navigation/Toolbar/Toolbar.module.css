@@ -14,7 +14,7 @@
 }
 
 .Toolbar nav {
-    height: 100%;
+    width: calc(100% / 3);
 }
 
 .BurgerLogo,
@@ -24,6 +24,7 @@
 
 .BurgerLogo{
     width: calc(100% / 3);
+    text-align: center;
 }
 
 .Menu {
@@ -31,7 +32,6 @@
     padding-inline-end: 7px;
     width: calc(100% / 3);
     padding-left: 7px;
-    transition: all .2s ease-out;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,7 +44,6 @@
 .Menu a{
     text-decoration: none;
     color: white;
-    
 }
 
 @media (max-width: 499px) {

@@ -15,6 +15,7 @@
 
 .Toolbar nav {
     width: calc(100% / 3);
+    height: 100%;
 }
 
 .BurgerLogo,
@@ -32,7 +33,7 @@
     padding-inline-end: 7px;
     width: calc(100% / 3);
     padding-left: 7px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
@@ -50,5 +51,9 @@
     .DesktopOnly {
         display: none;
         width: calc(100% / 3);
+    }
+
+    .Menu{
+        display: flex;
     }
 }

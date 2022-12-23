@@ -99,27 +99,6 @@ class BurgerBuilder extends Component {
     };
 
     contnuePurchaseHandler = () => {
-
-        // this.setState({ loading: true });
-
-        // const order = {
-        //     ingredients: this.state.ingredients,
-        //     price: this.state.totalPrice,
-        //     customerDetail: {
-        //         name: 'sohel shaikh',
-        //         address: 'ismail nagar, anand',
-        //         pincode: 380001,
-        //         email: 'test@test.com'
-        //     },
-        //     deliveryMethod: 'fastest'
-        // }
-        // axios.post('/orders.json', order)
-        //     .then(response => {
-        //         this.setState({ loading: false, purchasing: false })
-        //     })
-        //     .catch(err => {
-        //         this.setState({ loading: false, purchasing: false })
-        //     });
         this.setState({navigateToCkeckOut : true})
     };
 
@@ -166,7 +145,7 @@ class BurgerBuilder extends Component {
         
         return (
             <>
-            {this.state.navigateToCkeckOut ? <Navigate to="/checkout" /> : null}
+            {this.state.navigateToCkeckOut ? <Navigate to="/checkout" state={{ingredients : this.state.ingredients, price : this.state.totalPrice}}/> : null}
                 <Modal
                     show={this.state.purchasing}
                     closeModal={this.canclePurchaseHandler}>

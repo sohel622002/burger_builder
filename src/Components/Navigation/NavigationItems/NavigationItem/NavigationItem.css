@@ -1,0 +1,41 @@
+.links a {
+    text-decoration: none;
+    color: rgb(247 247 247);
+    font-size: 18px;
+    height: 100%;
+    display: grid;
+    padding: 0px 10px;
+    place-items: center;
+}
+
+.links a.active {
+    background-color: rgb(211, 136, 55);
+    border-bottom: 4px solid rgb(253, 166, 27);
+}
+
+.links:hover {
+    background-color: rgb(211, 136, 55);
+}
+
+@media (max-width : 500px) {
+
+    .links {
+        margin-bottom: 10px;
+        height: 40px;
+    }
+
+    .links:hover {
+        background-color: rgb(210, 210, 210);
+    }
+
+    .links a.active {
+        color: white;
+        background-color: rgb(223 137 0);
+        border-bottom: 4px solid rgb(253, 166, 27);
+    }
+
+    .links a {
+        text-decoration: none;
+        color: rgb(211, 136, 55);
+    }
+}
